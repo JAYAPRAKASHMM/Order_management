@@ -53,7 +53,7 @@ router.post('/', (req, res) => {
             else{
                 gstrTemp="sold";
             }
-            res.status(201).json({ message: `client ${temp} order successfully`, result });
+            res.status(201).json({ message: `client ${gstrTemp} order successfully`, result });
         });
         }
         });
