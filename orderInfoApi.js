@@ -17,8 +17,8 @@ router.post('/', (req, res) => {
     const { MsgType,OperationType,OrderType,ClientId,Token,TenantId,OrderId,OMSId } = req.body;
     var key =`${TenantId}_${OMSId}_${ClientId}_${Token}:${OrderId}`;
     const body = req.body;
-    if (!OperationType || !MsgType || !ClientId) {
-        return res.status(400).json({ error: 'OperationType, ClientId and MsgType are required' });
+    if (!OperationType || !MsgType ) {
+        return res.status(400).json({ error: 'OperationType and MsgType are required' });
     }
     if (MsgType!==1120) {
         return res.status(400).json({ error: 'message type is not valid for order info' });
