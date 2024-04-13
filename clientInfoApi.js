@@ -56,22 +56,12 @@ else if(OperationType===101){
             return res.status(400).json({ error: 'ClientId is required' });
         }
         var key = `${TenantId}_${OMSId}:${ClientId}`;
-        redis.exists(key, (err, exists) => {
-        if (err) {
-        console.error('Redis error:', err);
-        return res.status(500).json({ error: 'Internal server error' });
-        }
-        if (exists) {
-        return res.status(400).json({ error: 'Client id already exists' });
-        } else {
         redis.hmset(key, fieldValues, (err, result) => {
             if (err) {
                 console.error('Redis error:', err);
                 return res.status(500).json({ error: 'Internal server error' });
             }
-            res.status(201).json({ message: 'Client added successfully', result });
-        });
-        }
+            res.status(201).json({ message: 'Client updated  successfully', result });
         });
 }
 else if(OperationType===102){
