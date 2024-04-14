@@ -3,7 +3,13 @@ Redis assignment
 Commands:
 
 npm init
+
+
+
 npm instal ioredis express body-parser
+
+
+
 node server.js
 
 navigate to http://localhost:3000
